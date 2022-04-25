@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<title>We are celebrating our love!</title>
+
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0" />
+
+<link href="assets/font-awesome-4.4.0/css/font-awesome.min.css" rel="stylesheet" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+
+</head>
+<body>
+
+<!-- 'Page' -->
+<div class="page page-content">
+
+  <!-- 'Header' -->
+  <div class="header">
+
+    <!-- 'Menu' Block -->
+    <ul>
+      <li><a href="#story">Our Story</a></li>
+      <li><a href="#wedding">The Wedding</a></li>
+      <li><a href="#rsvp">RSVP</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#registry">Registry</a></li>      
+    </ul>
+    <!-- 'Menu' Block Ends! -->
+
+  </div>
+  <!-- 'Header' Block Ends! -->
+
+  <!-- 'Intro' Block -->
+  <div class="intro">
+
+    <h1>Our Jurnal</h1>
+    <p>stay up to date with wedding plans</p>
+
+  </div>
+  <!-- 'Intro' Block Ends! -->
+
+  <!-- 'Page Content' -->
+  <div class="article-content">
+    <div class="container">
+
+      <h2>This is highlighted post</h2>
+      <p class="date">may 10 2015</p>
+
+      <p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+
+      <img src="assets/images/slider.jpg">
+
+      <p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="container">
+
+      <p>copyright <a href="http://mage-themes.com/">mage-themes.com</a> 2016.</p>
+
+    </div>
+  </div>
+
+</div>
+<!-- 'Page' Ends! -->
+
+<div class="roses"></div>
+<div class="roses-r"></div>
+
+<!-- scripts -->
+<script src="assets/scripts/jquery-1.11.0.min.js"></script>
+<script src="assets/scripts/jquery.countdown-2.1.0/jquery.countdown.min.js"></script>
+<!--script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script-->
+<script src="assets/scripts/flexslider/jquery.flexslider-min.js"></script>
+<script src="assets/scripts/form.js"></script>
+<script src="assets/scripts/theme.js"></script>
+<!-- scripts ends! -->
+
+<!-- Google Map -->
+<script>
+jQuery(function($) {
+    // Asynchronously Load the map API 
+    var script = document.createElement('script');
+    script.src = "http://maps.googleapis.com/maps/api/js?sensor=false&callback=initialize";
+    document.body.appendChild(script);
+});
+
+function initialize() {
+    var map;
+    var bounds = new google.maps.LatLngBounds();
+    var mapOptions = {
+        mapTypeId: 'roadmap',
+        zoom: 16,
+        scrollwheel: false,
+        disableDefaultUI: true
+    };
+                    
+    // Display a map on the page
+    map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
+    map.setTilt(45);
+        
+    // Multiple Markers
+    var markers = [
+        ['London Eye, London', 51.503454,-0.119562],
+        ['Palace of Westminster, London', 51.499633,-0.124755]
+    ];
+
+    var myIcon = new google.maps.MarkerImage('assets/images/map_icon@2x.png', null, null, null, new google.maps.Size(22,31));
+    
+    // Loop through our array of markers & place each one on the map  
+    for( i = 0; i < markers.length; i++ ) {
+        var position = new google.maps.LatLng(markers[i][1], markers[i][2]);
+        bounds.extend(position);
+        marker = new google.maps.Marker({
+            position: position,
+            map: map,
+            title: markers[i][0],
+            icon: myIcon
+        });
+        
+        // Allow each marker to have an info window    
+        google.maps.event.addListener(marker, 'click', (function(marker, i) {
+            return function() {
+                infoWindow.setContent(infoWindowContent[i][0]);
+                infoWindow.open(map, marker);
+            }
+        })(marker, i));
+
+        // Automatically center the map fitting all markers on the screen
+        map.fitBounds(bounds);
+    }
+
+    // Override our map zoom level once our fitBounds function runs (Make sure it only runs once)
+    var boundsListener = google.maps.event.addListener((map), 'bounds_changed', function(event) {
+        this.setZoom(15);
+        google.maps.event.removeListener(boundsListener);
+    });
+
+    //panBy 220px
+    map.panBy(0,-220);
+}
+</script>
+<!-- Google Map Ends! -->
+
+</body>
+</html>
