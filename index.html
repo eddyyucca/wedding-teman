@@ -37,7 +37,7 @@
   <!-- 'Intro' Block -->
   <div class="intro">
     <p>We are celebrating our love</p>
-    <h1>Juliet <span>&amp;</span> Romeo</h1>
+    <h1>Novi <span>&amp;</span> Romeo</h1>
     <p class="date">December 31, 2016.</p>
   </div>
   <!-- 'Intro' Block Ends! -->
@@ -86,7 +86,7 @@
 
       <div class="slides">
         <ul>
-          <li><img src="assets/images/slider.jpg" /></li>
+          <li><img src="assets/images/foto/SNY04252.jpg" width="960" height="600" /></li>
           <li><img src="assets/images/slider.jpg" /></li>
           <li><img src="assets/images/slider.jpg" /></li>
         </ul>
@@ -116,7 +116,8 @@
   <!-- 'Venue' Block Ends! -->
 
   <!-- 'Location' Block -->
-  <div id="map_canvas" class="map"></div>
+  <div  class="map"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3984.873728112131!2d115.24115931458383!3d-2.8527989979220165!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xc4df25e60c34a58c!2zMsKwNTEnMTAuMSJTIDExNcKwMTQnMzYuMSJF!5e0!3m2!1sid!2sid!4v1650903818759!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+
   <!-- 'Location' Block Ends! -->
 
   <div class="accomodation">
@@ -341,7 +342,7 @@
   <div class="footer">
     <div class="container">
 
-      <p>copyright <a href="http://mage-themes.com/">mage-themes.com</a> 2016.</p>
+      <p>copyright <a href="http://majatekno.id/">majatekno.id</a> 2022.</p>
 
     </div>
   </div>
@@ -361,70 +362,7 @@
 <script src="assets/scripts/theme.js"></script>
 <!-- scripts ends! -->
 
-<!-- Google Map -->
-<script>
-jQuery(function($) {
-    // Asynchronously Load the map API 
-    var script = document.createElement('script');
-    script.src = "http://maps.googleapis.com/maps/api/js?sensor=false&callback=initialize";
-    document.body.appendChild(script);
-});
 
-function initialize() {
-    var map;
-    var bounds = new google.maps.LatLngBounds();
-    var mapOptions = {
-        mapTypeId: 'roadmap',
-        zoom: 16,
-        scrollwheel: false,
-        disableDefaultUI: true
-    };
-                    
-    // Display a map on the page
-    map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
-    map.setTilt(45);
-        
-    // Multiple Markers
-    var markers = [
-        ['London Eye, London', 51.503454,-0.119562],
-        ['Palace of Westminster, London', 51.499633,-0.124755]
-    ];
-
-    var myIcon = new google.maps.MarkerImage('assets/images/map_icon@2x.png', null, null, null, new google.maps.Size(22,31));
-    
-    // Loop through our array of markers & place each one on the map  
-    for( i = 0; i < markers.length; i++ ) {
-        var position = new google.maps.LatLng(markers[i][1], markers[i][2]);
-        bounds.extend(position);
-        marker = new google.maps.Marker({
-            position: position,
-            map: map,
-            title: markers[i][0],
-            icon: myIcon
-        });
-        
-        // Allow each marker to have an info window    
-        google.maps.event.addListener(marker, 'click', (function(marker, i) {
-            return function() {
-                infoWindow.setContent(infoWindowContent[i][0]);
-                infoWindow.open(map, marker);
-            }
-        })(marker, i));
-
-        // Automatically center the map fitting all markers on the screen
-        map.fitBounds(bounds);
-    }
-
-    // Override our map zoom level once our fitBounds function runs (Make sure it only runs once)
-    var boundsListener = google.maps.event.addListener((map), 'bounds_changed', function(event) {
-        this.setZoom(15);
-        google.maps.event.removeListener(boundsListener);
-    });
-
-    //panBy 220px
-    map.panBy(0,-220);
-}
-</script>
 <!-- Google Map Ends! -->
 
 </body>
