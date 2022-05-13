@@ -234,14 +234,14 @@ div {
     width: 50%; }
   .newlyweds .bride {
     text-align: right; }
-    .newlyweds .bride h2:before {
-      content: url("assets/images/image02.png");
-      margin-right: 20px; }
+    /* .newlyweds .bride h2:before { */
+      /* content: url("assets/images/image02.png"); */
+      /* margin-right: 20px; } */
   .newlyweds .groom {
     text-align: left; }
-    .newlyweds .groom h2:after {
-      content: url("assets/images/image02-flipped.png");
-      margin-left: 20px; }
+    /* .newlyweds .groom h2:after { */
+      /* content: url("assets/images/image02-flipped.png"); */
+      /* margin-left: 20px; } */
   .newlyweds p {
     font-size: 0.77778em;
     line-height: 25px; }
@@ -267,10 +267,10 @@ div {
     font-size: 2.5em;
     text-transform: uppercase; }
     .venue h2:before {
-      content: url("assets/images/image02.png");
+      /* content: url("assets/images/image02.png"); */
       margin-right: 20px; }
     .venue h2:after {
-      content: url("assets/images/image02-flipped.png");
+      /* content: url("assets/images/image02-flipped.png"); */
       margin-left: 20px; }
   .venue p {
     margin-bottom: 30px; }
@@ -302,10 +302,10 @@ div {
     text-transform: uppercase;
     margin-bottom: 10px; }
     .registry h2:before {
-      content: url("assets/images/image02.png");
+      /* content: url("assets/images/image02.png"); */
       margin-right: 20px; }
     .registry h2:after {
-      content: url("assets/images/image02-flipped.png");
+      /* content: url("assets/images/image02-flipped.png"); */
       margin-left: 20px; }
   .registry h3 {
     text-transform: uppercase;

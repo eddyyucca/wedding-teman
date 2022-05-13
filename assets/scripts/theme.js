@@ -2,7 +2,7 @@ $(document).ready(function() {
 "use strict";
 
   // Clock
-  $('.counter').countdown('2016/12/31').on('update.countdown', function(e) {
+  $('.counter').countdown('2022/06/05').on('update.countdown', function(e) {
     var $this = $(this).html(e.strftime('%D'));
   });
   
