@@ -536,7 +536,7 @@ div {
     margin-bottom: 10px;
     color: #95888f; }
     .rsvp-form h2:before {
-      content: url("assets/images/image02.png");
+      content: url("assets/images/image02-default-color-flipped.png");
       margin-right: 20px; }
     .rsvp-form h2:after {
       content: url("assets/images/image02-flipped.png");
