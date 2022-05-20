@@ -1,17 +1,15 @@
 <?php
-if( isset( $_SERVER['HTTP_X_REQUESTED_WITH'] ) && ( $_SERVER['HTTP_X_REQUESTED_WITH'] == 'XMLHttpRequest' ) ) {
 
-  $to = "no-reply@mage-themes.com";
-  $name = $_POST['name'];
-  $subject = "RSVP";
-  $message = $name . " wrote the following: " . "\n\n" . $_POST['message'] . "\n\n" . $_POST['email'] . "\n\n" . "Number of guests: " . $_POST['guests'] . "\n\n" . "Will you be coming: " . $_POST['rsvp'];
-  $headers = "From: no-reply@mage-themes.com"."\r\n" . "Reply-To: no-reply@mage-themes.com"."\r\n";
-  mail($to, $subject, $message, $headers);
+// koneksi database
+include 'koneksi.php';
 
-} else {
+// menangkap data yang di kirim dari form
+$name = $_POST['name'];
+$rsvp = $_POST['rsvp'];
+$message = $_POST['message'];
 
-  header("Location: index.html");
-  exit();
+// mysqli_query($koneksi, "insert into ucapan values ('$name','$rsvp','$message')");
 
-}
-?>
+$insert = mysqli_query($koneksi, "insert into ucapan set name='$name', rsvp='$rsvp', message='$message'");
+
+header("location:index.php");
